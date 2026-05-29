@@ -25,7 +25,7 @@ export default function TimelineItem({ item, index }: TimelineItemProps) {
       {/* Node on the timeline rail */}
       <span
         className={cn(
-          'absolute left-0 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full ring-4 ring-zinc-50 transition-transform duration-300 group-hover:scale-125 dark:ring-zinc-950',
+          'absolute left-0 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full ring-4 ring-zinc-50 transition-transform duration-300 group-hover:scale-125 dark:ring-ink-base',
           accentDot[accent]
         )}
       />

@@ -35,7 +35,7 @@ export default function SocialHoverCard({
             className={cn(
               'pointer-events-none absolute bottom-full left-1/2 z-50 mb-2.5',
               'w-40 -translate-x-1/2 sm:w-44',
-              'rounded-lg border border-zinc-200 bg-white shadow-lg shadow-black/5 dark:border-white/10 dark:bg-zinc-900 dark:shadow-black/30',
+              'rounded-lg border border-zinc-200 bg-white shadow-lg shadow-black/5 dark:border-white/10 dark:bg-ink-overlay dark:shadow-black/30',
               'px-3 py-2.5'
             )}
           >

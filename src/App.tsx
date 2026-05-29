@@ -11,7 +11,7 @@ import ScrollProgress from '@/components/ui/ScrollProgress'
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+    <div className="relative min-h-screen bg-zinc-50 text-zinc-900 dark:bg-ink-base dark:text-zinc-100">
       <ScrollProgress />
       <Navbar />
       <main>

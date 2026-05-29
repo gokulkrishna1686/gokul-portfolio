@@ -31,7 +31,7 @@ function Portrait() {
   const [errored, setErrored] = useState(false)
   if (errored) {
     return (
-      <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-zinc-100 dark:bg-zinc-900">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-zinc-100 dark:bg-ink-raised">
         <span className="text-5xl font-black tracking-tightest text-zinc-300 dark:text-zinc-700">GK</span>
         <span className="px-4 text-center text-[11px] font-medium text-zinc-400 dark:text-zinc-600">
           add your photo at <span className="font-mono">public/portrait.jpg</span>

@@ -21,6 +21,13 @@ const config: Config = {
           amber: '#fbbf24',
           rose: '#fb7185',
         },
+        // Dark-mode elevation: a soft near-black canvas with stepped surfaces
+        // on top, so cards read as raised rather than dissolving into black.
+        ink: {
+          base: '#000000', // page canvas (plain black)
+          raised: '#0e0f14', // tiles / cards — deep, faintly cool near-black
+          overlay: '#15161c', // popovers / dropdowns
+        },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

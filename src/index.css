@@ -16,7 +16,7 @@ html {
 }
 
 html.dark {
-  background-color: #09090b;
+  background-color: #000000;
   color-scheme: dark;
 }
 
@@ -46,7 +46,7 @@ html.dark {
 @layer components {
   /* Base bento/section tile */
   .tile {
-    @apply rounded-2xl border border-zinc-200 bg-white shadow-tile transition-colors duration-300 dark:border-white/10 dark:bg-zinc-900/60 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)];
+    @apply rounded-2xl border border-zinc-200 bg-white shadow-tile transition-colors duration-300 dark:border-white/10 dark:bg-ink-raised dark:bg-gradient-to-b dark:from-white/[0.045] dark:to-transparent dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)];
   }
 
   /* Thin animated multi-hue accent line (dividers / tile tops) */
