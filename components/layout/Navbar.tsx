@@ -39,12 +39,32 @@ function ThemeToggle() {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [active, setActive] = useState('')
   const scrollTo = useScrollTo()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Scroll-spy: mark the section currently in the upper viewport as active.
+  useEffect(() => {
+    const sections = navLinks
+      .map((l) => document.getElementById(l.href.slice(1)))
+      .filter((el): el is HTMLElement => Boolean(el))
+    if (!sections.length) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+        if (visible[0]) setActive(visible[0].target.id)
+      },
+      { rootMargin: '-25% 0px -60% 0px' }
+    )
+    sections.forEach((s) => observer.observe(s))
+    return () => observer.disconnect()
   }, [])
 
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -72,20 +92,33 @@ export default function Navbar() {
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={(e) => handleNav(e, link.href)}
-                className={cn(
-                  'rounded text-xs font-semibold uppercase tracking-wider text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white',
-                  focusRing
-                )}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = active === link.href.slice(1)
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={(e) => handleNav(e, link.href)}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={cn(
+                    'group relative rounded text-xs font-semibold uppercase tracking-wider transition-colors',
+                    isActive
+                      ? 'text-zinc-900 dark:text-white'
+                      : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white',
+                    focusRing
+                  )}
+                >
+                  {link.label}
+                  <span
+                    className={cn(
+                      'absolute -bottom-1.5 left-0 h-px bg-zinc-900 transition-all duration-300 dark:bg-white',
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    )}
+                  />
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         <div className="flex items-center gap-2">
@@ -113,19 +146,26 @@ export default function Navbar() {
             className="overflow-hidden border-b border-zinc-200 bg-white/95 backdrop-blur-md dark:border-white/10 dark:bg-zinc-950/95 md:hidden"
           >
             <div className="space-y-1 px-4 py-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => handleNav(e, link.href)}
-                  className={cn(
-                    'block rounded-lg px-3 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-white/5 dark:hover:text-white',
-                    focusRing
-                  )}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = active === link.href.slice(1)
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleNav(e, link.href)}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={cn(
+                      'block rounded-lg px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors',
+                      isActive
+                        ? 'bg-zinc-100 text-zinc-900 dark:bg-white/5 dark:text-white'
+                        : 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-white/5 dark:hover:text-white',
+                      focusRing
+                    )}
+                  >
+                    {link.label}
+                  </a>
+                )
+              })}
             </div>
           </motion.div>
         )}

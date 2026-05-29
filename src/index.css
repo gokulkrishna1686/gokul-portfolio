@@ -8,16 +8,16 @@
   font-family: var(--font-inter);
 }
 
-/* Dark is the default theme; set base bg pre-mount to avoid a flash. */
+/* Light is the default theme; set base bg pre-mount to avoid a flash. */
 html {
   scroll-behavior: smooth;
-  background-color: #09090b;
-  color-scheme: dark;
-}
-
-html:not(.dark) {
   background-color: #fafafa;
   color-scheme: light;
+}
+
+html.dark {
+  background-color: #09090b;
+  color-scheme: dark;
 }
 
 /* Neutral scrollbar */
@@ -46,7 +46,7 @@ html:not(.dark) {
 @layer components {
   /* Base bento/section tile */
   .tile {
-    @apply rounded-2xl border border-zinc-200 bg-white shadow-tile transition-colors duration-300 dark:border-white/10 dark:bg-zinc-900/60;
+    @apply rounded-2xl border border-zinc-200 bg-white shadow-tile transition-colors duration-300 dark:border-white/10 dark:bg-zinc-900/60 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)];
   }
 
   /* Thin animated multi-hue accent line (dividers / tile tops) */
@@ -57,4 +57,9 @@ html:not(.dark) {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Selection accent (subtle indigo) */
+::selection {
+  background-color: rgba(129, 140, 248, 0.28);
 }

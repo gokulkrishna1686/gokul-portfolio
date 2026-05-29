@@ -26,7 +26,7 @@ export default function Education() {
 
         <div className="flex shrink-0 items-stretch gap-8 sm:gap-12">
           <div>
-            <p className="text-4xl font-black tracking-tightest text-accent-rose sm:text-5xl">9.30</p>
+            <p className="text-4xl font-black tracking-tightest tabular-nums text-accent-rose sm:text-5xl">9.30</p>
             <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
               CGPA
             </p>
@@ -36,7 +36,7 @@ export default function Education() {
           <div className="w-px self-stretch bg-zinc-200 dark:bg-white/10" aria-hidden />
 
           <div>
-            <p className="text-4xl font-black tracking-tightest text-zinc-900 dark:text-white sm:text-5xl">2028</p>
+            <p className="text-4xl font-black tracking-tightest tabular-nums text-zinc-900 dark:text-white sm:text-5xl">2028</p>
             <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
               Expected
             </p>
