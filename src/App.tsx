@@ -12,9 +12,15 @@ import ScrollProgress from '@/components/ui/ScrollProgress'
 export default function App() {
   return (
     <div className="relative min-h-screen bg-zinc-50 text-zinc-900 dark:bg-ink-base dark:text-zinc-100">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-zinc-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white dark:focus:bg-white dark:focus:text-zinc-900"
+      >
+        Skip to content
+      </a>
       <ScrollProgress />
       <Navbar />
-      <main>
+      <main id="main">
         <Bento />
         <About />
         <Projects />

@@ -12,7 +12,7 @@ export default function About() {
   return (
     <SectionContainer id="about">
       <div className="mb-8 flex items-center gap-2.5">
-        <span className="font-mono text-xs text-zinc-400 dark:text-zinc-500">01</span>
+        <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">01</span>
         <span className="text-xs font-semibold uppercase tracking-wider text-accent-indigo">About</span>
       </div>
 
@@ -28,7 +28,7 @@ export default function About() {
 
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         <div className="sm:col-span-2 lg:col-span-1">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
             Focus
           </p>
           <p className="flex flex-wrap items-center text-sm font-medium text-zinc-700 dark:text-zinc-200">
@@ -42,7 +42,7 @@ export default function About() {
         </div>
 
         <div>
-          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
             Studying
           </p>
           <p className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
@@ -51,7 +51,7 @@ export default function About() {
         </div>
 
         <div>
-          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
             Based
           </p>
           <p className="text-sm font-medium text-zinc-700 dark:text-zinc-200">

@@ -36,24 +36,24 @@ export default function Contact() {
         <a
           href={`mailto:${EMAIL}`}
           className={cn(
-            'group inline-flex shrink-0 items-center gap-4 rounded-2xl border border-zinc-300 px-5 py-4 transition-colors hover:border-zinc-400 dark:border-white/15 dark:hover:border-white/30',
+            'group flex w-full items-center gap-3 rounded-2xl border border-zinc-300 px-4 py-4 transition-colors hover:border-zinc-400 dark:border-white/15 dark:hover:border-white/30 sm:gap-4 sm:px-5 lg:w-auto lg:shrink-0',
             focusRing
           )}
         >
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
             <Mail size={18} />
           </span>
-          <span className="text-left">
-            <span className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+          <span className="min-w-0 text-left">
+            <span className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
               Email
             </span>
-            <span className="block text-sm font-semibold text-zinc-900 dark:text-white sm:text-base">
+            <span className="block break-all text-sm font-semibold text-zinc-900 dark:text-white sm:text-base">
               {EMAIL}
             </span>
           </span>
           <ArrowUpRight
             size={18}
-            className="ml-1 text-zinc-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            className="ml-1 shrink-0 text-zinc-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
           />
         </a>
       </div>

@@ -15,7 +15,7 @@ export default function SectionHeading({ index, eyebrow, title, accent = 'indigo
   return (
     <div className={cn('mb-10', className)}>
       <div className="mb-3 flex items-center gap-2.5">
-        {index && <span className="font-mono text-xs text-zinc-400 dark:text-zinc-500">{index}</span>}
+        {index && <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">{index}</span>}
         <span className={cn('text-xs font-semibold uppercase tracking-wider', accentText[accent])}>
           {eyebrow}
         </span>

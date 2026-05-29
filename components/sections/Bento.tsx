@@ -46,6 +46,8 @@ function Portrait() {
       onError={() => setErrored(true)}
       className="h-full w-full object-cover"
       loading="eager"
+      fetchPriority="high"
+      decoding="async"
     />
   )
 }
@@ -73,7 +75,7 @@ export default function Bento() {
             </div>
             <div>
               <p className="mb-3 text-sm font-medium text-zinc-500 dark:text-zinc-400">Gokul Krishna Balaji</p>
-              <h1 className="text-balance text-5xl font-black leading-[0.95] tracking-tightest text-zinc-900 dark:text-white sm:text-6xl lg:text-7xl">
+              <h1 className="text-balance text-[clamp(2.25rem,12.5vw,3rem)] font-black leading-[0.95] tracking-tightest text-zinc-900 dark:text-white sm:text-6xl lg:text-7xl">
                 Full-Stack
                 <br />
                 <span className="text-zinc-400 dark:text-zinc-500">&amp;</span> AI Engineer

@@ -130,6 +130,8 @@ export default function Navbar() {
               focusRing
             )}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             {menuOpen ? <X size={16} /> : <Menu size={16} />}
           </button>
@@ -139,6 +141,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
