@@ -1,17 +1,13 @@
 import SectionContainer from '@/components/ui/SectionContainer'
+import SectionHeading from '@/components/ui/SectionHeading'
 import TimelineItem from '@/components/ui/TimelineItem'
 import { experienceData } from '@/data/experience'
 
 export default function Experience() {
   return (
     <SectionContainer id="experience">
-      <p className="mb-2 text-xs font-semibold tracking-widest text-accent dark:text-accent-light uppercase">
-        Experience
-      </p>
-      <h2 className="mb-8 text-2xl sm:text-3xl font-bold tracking-tight text-ink dark:text-white">
-        Where I&apos;ve worked
-      </h2>
-      <div className="space-y-3">
+      <SectionHeading index="04" eyebrow="Experience" accent="amber" title="Where I've worked." />
+      <div className="relative ml-1.5 border-l border-zinc-200 pl-1 dark:border-white/10">
         {experienceData.map((item, i) => (
           <TimelineItem key={i} item={item} index={i} />
         ))}

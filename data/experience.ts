@@ -20,7 +20,7 @@ export const experienceData: Experience[] = [
   {
     role: 'Coordinator',
     company: 'Google Developer Student Club – IIITDM Kancheepuram',
-    period: 'Aug 2025 – Present',
+    period: 'Aug 2025 – May 2026',
     description: [
       'Built a RAG-based chatbot for event and resource queries, serving 500+ students.',
       'Organized workshops on AI APIs, automation tools, and full-stack development.',

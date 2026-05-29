@@ -3,71 +3,84 @@ import { useTheme } from 'next-themes'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Sun, Moon, Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useScrollTo } from '@/hooks/useScrollTo'
 
 const navLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ]
 
+const focusRing =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent'
+
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-
   useEffect(() => setMounted(true), [])
-
-  if (!mounted) return <div className="w-9 h-9" />
+  if (!mounted) return <div className="h-9 w-9" />
 
   return (
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+    <button
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-      className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-ink-muted dark:text-slate-400 hover:text-accent dark:hover:text-accent-light transition-colors"
+      className={cn(
+        'flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 transition-colors hover:text-zinc-900 dark:border-white/10 dark:text-zinc-400 dark:hover:text-white',
+        focusRing
+      )}
       aria-label="Toggle theme"
     >
       {resolvedTheme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-    </motion.button>
+    </button>
   )
 }
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const scrollTo = useScrollTo()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10)
+    const onScroll = () => setScrolled(window.scrollY > 8)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    setMenuOpen(false)
+    scrollTo(href)
+  }
+
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
         scrolled
-          ? 'backdrop-blur-md bg-white/80 dark:bg-surface-dark/80 shadow-sm border-b border-slate-200/50 dark:border-white/5'
-          : 'bg-transparent'
+          ? 'border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-zinc-950/80'
+          : 'border-b border-transparent'
       )}
     >
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
-        {/* Logo */}
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a
           href="#"
-          className="text-sm font-semibold text-ink dark:text-white hover:text-accent dark:hover:text-accent-light transition-colors"
+          onClick={(e) => handleNav(e, '#')}
+          className={cn('rounded text-base font-black tracking-tightest text-zinc-900 dark:text-white', focusRing)}
         >
-          Gokul<span className="text-accent dark:text-accent-light">.</span>
+          GK
         </a>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-ink-muted dark:text-slate-400 hover:text-ink dark:hover:text-white transition-colors"
+                onClick={(e) => handleNav(e, link.href)}
+                className={cn(
+                  'rounded text-xs font-semibold uppercase tracking-wider text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white',
+                  focusRing
+                )}
               >
                 {link.label}
               </a>
@@ -75,12 +88,14 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Right side */}
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 text-ink-muted dark:text-slate-400"
+            className={cn(
+              'flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 dark:border-white/10 dark:text-zinc-400 md:hidden',
+              focusRing
+            )}
             aria-label="Toggle menu"
           >
             {menuOpen ? <X size={16} /> : <Menu size={16} />}
@@ -88,26 +103,30 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-slate-200 dark:border-white/10 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-md px-4 py-4 space-y-1"
+            className="overflow-hidden border-b border-zinc-200 bg-white/95 backdrop-blur-md dark:border-white/10 dark:bg-zinc-950/95 md:hidden"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block rounded-lg px-3 py-2 text-sm text-ink-muted dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-ink dark:hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+            <div className="space-y-1 px-4 py-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNav(e, link.href)}
+                  className={cn(
+                    'block rounded-lg px-3 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-white/5 dark:hover:text-white',
+                    focusRing
+                  )}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

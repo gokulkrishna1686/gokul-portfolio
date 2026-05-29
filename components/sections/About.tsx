@@ -1,32 +1,61 @@
+import { type ReactNode } from 'react'
 import SectionContainer from '@/components/ui/SectionContainer'
+
+const focusItems = ['LLM apps', 'RAG', 'AI agents', 'Full-stack', 'Computer vision']
+
+/** Full-contrast emphasis word inside the muted statement. */
+function Hi({ children }: { children: ReactNode }) {
+  return <span className="text-zinc-900 dark:text-white">{children}</span>
+}
 
 export default function About() {
   return (
-    <SectionContainer id="about" className="bg-surface-section dark:bg-white/[0.05]">
-      <div className="max-w-2xl">
-        <p className="mb-2 text-xs font-semibold tracking-widest text-accent dark:text-accent-light uppercase">
-          About Me
-        </p>
-        <h2 className="mb-6 text-2xl sm:text-3xl font-bold tracking-tight text-ink dark:text-white">
-          Crafting ideas into products
-        </h2>
-        <div className="space-y-4 text-sm sm:text-base leading-relaxed text-ink-muted dark:text-slate-400">
-          <p>
-            I&apos;m a Computer Science (AI) undergraduate passionate about building intelligent systems
-            that solve real-world problems. My work focuses on the intersection of machine learning, LLM
-            applications, and full-stack engineering, where I turn AI models into practical, user-facing
-            products.
+    <SectionContainer id="about">
+      <div className="mb-8 flex items-center gap-2.5">
+        <span className="font-mono text-xs text-zinc-400 dark:text-zinc-500">01</span>
+        <span className="text-xs font-semibold uppercase tracking-wider text-accent-indigo">About</span>
+      </div>
+
+      <p className="max-w-5xl text-pretty text-2xl font-semibold leading-[1.35] tracking-tight text-zinc-500 dark:text-zinc-400 sm:text-3xl lg:text-[2.5rem] lg:leading-[1.32]">
+        I&apos;m a <Hi>Computer Science (AI)</Hi> undergrad building intelligent systems that turn{' '}
+        <Hi>machine-learning research</Hi> into{' '}
+        <span className="text-accent-indigo">products people actually use</span>. I&apos;ve shipped{' '}
+        <Hi>RAG assistants</Hi>, <Hi>AI grading platforms</Hi>, and <Hi>computer-vision apps</Hi> — designed
+        end-to-end, from models and data pipelines to scalable backends and clean interfaces.
+      </p>
+
+      <div className="hairline mb-10 mt-14" />
+
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="sm:col-span-2 lg:col-span-1">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+            Focus
           </p>
-          <p>
-            I&apos;ve built systems ranging from RAG-powered document assistants and AI grading platforms
-            to ML-driven web applications, designing them end-to-end from model development and data
-            pipelines to scalable backends and intuitive interfaces. I care deeply about building systems
-            that are robust, efficient, and actually useful in real-world settings.
+          <p className="flex flex-wrap items-center text-sm font-medium text-zinc-700 dark:text-zinc-200">
+            {focusItems.map((f, i) => (
+              <span key={f} className="inline-flex items-center">
+                {i > 0 && <span className="mx-2 h-1 w-1 rounded-full bg-zinc-300 dark:bg-zinc-600" />}
+                {f}
+              </span>
+            ))}
           </p>
-          <p>
-            Outside of projects, I spend time exploring deep learning, large language models, and modern
-            AI architectures, constantly experimenting with new ideas and tools to push what intelligent
-            systems can do.
+        </div>
+
+        <div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+            Studying
+          </p>
+          <p className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
+            B.Tech CSE (AI), IIITDM Kancheepuram
+          </p>
+        </div>
+
+        <div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+            Based
+          </p>
+          <p className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
+            Chennai, India · open to remote
           </p>
         </div>
       </div>

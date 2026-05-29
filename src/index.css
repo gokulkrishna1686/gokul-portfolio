@@ -4,36 +4,57 @@
 
 :root {
   --font-inter: 'Inter', system-ui, sans-serif;
+  --nav-h: 64px;
   font-family: var(--font-inter);
 }
 
+/* Dark is the default theme; set base bg pre-mount to avoid a flash. */
 html {
   scroll-behavior: smooth;
-  background-color: #EFF6FF;
+  background-color: #09090b;
+  color-scheme: dark;
 }
 
-html.dark {
-  background-color: #060D1A;
+html:not(.dark) {
+  background-color: #fafafa;
+  color-scheme: light;
 }
 
+/* Neutral scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #93C5FD;
-  border-radius: 3px;
+  background: rgba(113, 113, 122, 0.4);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #1E3A8A;
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(113, 113, 122, 0.6);
+  background-clip: padding-box;
 }
 
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  /* Base bento/section tile */
+  .tile {
+    @apply rounded-2xl border border-zinc-200 bg-white shadow-tile transition-colors duration-300 dark:border-white/10 dark:bg-zinc-900/60;
+  }
+
+  /* Thin animated multi-hue accent line (dividers / tile tops) */
+  .hairline {
+    @apply h-px w-full bg-hairline bg-[length:200%_auto] motion-safe:animate-hairline-pan;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
 }

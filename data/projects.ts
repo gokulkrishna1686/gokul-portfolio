@@ -6,6 +6,7 @@ export interface Project {
   live?: string
   projectPage?: string
   featured?: boolean
+  color?: string
 }
 
 const PLACEHOLDER = 'https://github.com/gokulkrishna1686'
@@ -20,6 +21,7 @@ export const projectsData: Project[] = [
     live: PLACEHOLDER,
     projectPage: PLACEHOLDER,
     featured: true,
+    color: 'from-violet-500 to-purple-400',
   },
   {
     title: 'ReFile',
@@ -30,6 +32,7 @@ export const projectsData: Project[] = [
     live: PLACEHOLDER,
     projectPage: PLACEHOLDER,
     featured: true,
+    color: 'from-orange-500 to-amber-400',
   },
   {
     title: 'Animal Image Classifier',
@@ -40,6 +43,7 @@ export const projectsData: Project[] = [
     live: PLACEHOLDER,
     projectPage: PLACEHOLDER,
     featured: true,
+    color: 'from-emerald-500 to-teal-400',
   },
   {
     title: 'VectorNote',
@@ -50,5 +54,6 @@ export const projectsData: Project[] = [
     live: PLACEHOLDER,
     projectPage: PLACEHOLDER,
     featured: true,
+    color: 'from-blue-500 to-cyan-400',
   },
 ]

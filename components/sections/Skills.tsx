@@ -1,69 +1,68 @@
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import { Code2, Layout, Server, Brain, Database, Wrench } from 'lucide-react'
 import SectionContainer from '@/components/ui/SectionContainer'
+import SectionHeading from '@/components/ui/SectionHeading'
+import { ACCENT_CYCLE, accentText, accentDot } from '@/components/ui/accents'
 import { skillsData } from '@/data/skills'
+import { cn } from '@/lib/utils'
 
 const categoryIcons: Record<string, React.ElementType> = {
-  'Languages':    Code2,
-  'Frontend':     Layout,
-  'Backend':      Server,
-  'AI / ML':      Brain,
-  'Database':     Database,
+  Languages: Code2,
+  Frontend: Layout,
+  Backend: Server,
+  'AI / ML': Brain,
+  Database: Database,
   'Tools & Infra': Wrench,
 }
 
-const container = {
+const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.07 } },
 }
-
-const cardVariant = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+const rowVariant: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
 }
 
 export default function Skills() {
   return (
     <SectionContainer id="skills">
-      <p className="mb-2 text-xs font-semibold tracking-widest text-accent dark:text-accent-light uppercase">
-        Skills
-      </p>
-      <h2 className="mb-8 text-2xl sm:text-3xl font-bold tracking-tight text-ink dark:text-white">
-        What I work with
-      </h2>
+      <SectionHeading index="03" eyebrow="Skills" accent="emerald" title="Tools of the trade." />
 
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        className="border-t border-zinc-200 dark:border-white/10"
       >
-        {skillsData.map((category) => {
+        {skillsData.map((category, i) => {
           const Icon = categoryIcons[category.name] ?? Code2
+          const accent = ACCENT_CYCLE[i % ACCENT_CYCLE.length]
           return (
             <motion.div
               key={category.name}
-              variants={cardVariant}
-              className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-5"
+              variants={rowVariant}
+              className="group grid grid-cols-1 gap-3 border-b border-zinc-200 py-6 dark:border-white/10 sm:grid-cols-[200px_1fr] sm:items-center sm:gap-10"
             >
-              {/* Header */}
-              <div className="mb-4 flex items-center gap-2.5">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10">
-                  <Icon size={15} className="text-accent dark:text-accent-light" />
-                </div>
-                <span className="text-sm font-semibold text-ink dark:text-white">
+              <div className="flex items-center gap-3">
+                <span
+                  className={cn(
+                    'flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-200 transition-colors group-hover:border-current dark:border-white/10',
+                    accentText[accent]
+                  )}
+                >
+                  <Icon size={16} />
+                </span>
+                <span className="text-base font-black tracking-tightest text-zinc-900 dark:text-white">
                   {category.name}
                 </span>
               </div>
 
-              {/* Badges */}
-              <div className="flex flex-wrap gap-1.5">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="inline-flex items-center rounded-full border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-2.5 py-0.5 text-xs font-medium text-ink-muted dark:text-slate-300"
-                  >
+              <div className="flex flex-wrap items-center gap-y-1.5 pl-12 sm:pl-0">
+                {category.skills.map((skill, j) => (
+                  <span key={skill} className="inline-flex items-center text-sm font-medium text-zinc-600 dark:text-zinc-300">
+                    {j > 0 && <span className={cn('mx-2.5 h-1 w-1 rounded-full opacity-50', accentDot[accent])} />}
                     {skill}
                   </span>
                 ))}
