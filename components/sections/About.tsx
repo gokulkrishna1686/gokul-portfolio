@@ -31,11 +31,13 @@ export default function About() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
             Focus
           </p>
-          <p className="flex flex-wrap items-center text-sm font-medium text-zinc-700 dark:text-zinc-200">
+          <p className="flex flex-wrap items-center gap-x-2 text-sm font-medium text-zinc-700 dark:text-zinc-200">
             {focusItems.map((f, i) => (
-              <span key={f} className="inline-flex items-center">
-                {i > 0 && <span className="mx-2 h-1 w-1 rounded-full bg-zinc-300 dark:bg-zinc-600" />}
+              <span key={f} className="inline-flex items-center gap-x-2 whitespace-nowrap">
                 {f}
+                {i < focusItems.length - 1 && (
+                  <span className="h-1 w-1 rounded-full bg-zinc-300 dark:bg-zinc-600" aria-hidden />
+                )}
               </span>
             ))}
           </p>

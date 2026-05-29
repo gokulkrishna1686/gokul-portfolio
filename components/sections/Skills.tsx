@@ -59,11 +59,13 @@ export default function Skills() {
                 </span>
               </div>
 
-              <div className="flex flex-wrap items-center gap-y-1.5 pl-12 sm:pl-0">
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 pl-12 sm:pl-0">
                 {category.skills.map((skill, j) => (
-                  <span key={skill} className="inline-flex items-center text-sm font-medium text-zinc-600 dark:text-zinc-300">
-                    {j > 0 && <span className={cn('mx-2.5 h-1 w-1 rounded-full opacity-50', accentDot[accent])} />}
+                  <span key={skill} className="inline-flex items-center gap-x-2.5 whitespace-nowrap text-sm font-medium text-zinc-600 dark:text-zinc-300">
                     {skill}
+                    {j < category.skills.length - 1 && (
+                      <span className={cn('h-1 w-1 rounded-full opacity-50', accentDot[accent])} aria-hidden />
+                    )}
                   </span>
                 ))}
               </div>
