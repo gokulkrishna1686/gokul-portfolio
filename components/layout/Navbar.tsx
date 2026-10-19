@@ -78,7 +78,7 @@ export default function Navbar() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
         scrolled
-          ? 'border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-ink-base/80'
+          ? 'border-b border-zinc-300/80 bg-[#f3f2ec]/90 backdrop-blur-md dark:border-white/10 dark:bg-ink-base/85'
           : 'border-b border-transparent'
       )}
     >
@@ -86,7 +86,7 @@ export default function Navbar() {
         <a
           href="#"
           onClick={(e) => handleNav(e, '#')}
-          className={cn('rounded text-base font-black tracking-tightest text-zinc-900 dark:text-white', focusRing)}
+          className={cn('font-display rounded text-lg font-bold tracking-tightest text-zinc-900 dark:text-white', focusRing)}
         >
           GK
         </a>

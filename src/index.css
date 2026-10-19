@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-inter: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
   --nav-h: 64px;
   font-family: var(--font-inter);
 }
@@ -11,12 +14,12 @@
 /* Light is the default theme; set base bg pre-mount to avoid a flash. */
 html {
   scroll-behavior: smooth;
-  background-color: #fafafa;
+  background-color: #f3f2ec;
   color-scheme: light;
 }
 
 html.dark {
-  background-color: #000000;
+  background-color: #111616;
   color-scheme: dark;
 }
 
@@ -46,7 +49,7 @@ html.dark {
 @layer components {
   /* Base bento/section tile */
   .tile {
-    @apply rounded-2xl border border-zinc-200 bg-white shadow-tile transition-colors duration-300 dark:border-white/10 dark:bg-ink-raised dark:bg-gradient-to-b dark:from-white/[0.045] dark:to-transparent dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)];
+    @apply rounded-sm border border-zinc-300/90 bg-[#fffef9] shadow-tile transition-colors duration-300 dark:border-white/10 dark:bg-ink-raised dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)];
   }
 
   /* Thin animated multi-hue accent line (dividers / tile tops) */
@@ -57,6 +60,17 @@ html.dark {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.font-display { font-family: var(--font-display); }
+
+.site-grid {
+  background-image: linear-gradient(rgba(28, 40, 38, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(28, 40, 38, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.dark .site-grid {
+  background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
 }
 
 /* Selection accent (subtle indigo) */

@@ -65,23 +65,24 @@ export default function Bento() {
       >
         {/* Name / headline */}
         <motion.div variants={item} className="sm:col-span-2 lg:col-span-4">
-          <Tile accent="indigo" hairline className="h-full" bodyClassName="flex h-full flex-col justify-between gap-8 p-7 sm:p-9 lg:min-h-[360px]">
-            <div className="flex items-center gap-2 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+          <Tile accent="indigo" hairline className="h-full" bodyClassName="flex h-full flex-col justify-between gap-8 p-7 sm:p-9 lg:min-h-[390px]">
+            <div className="flex items-center justify-between gap-2 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+              <span className="font-mono text-[10px] tracking-[0.16em] text-zinc-400">FIELD NOTES / 2026</span>
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-accent-emerald opacity-60 motion-safe:animate-ping" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-emerald" />
               </span>
-              Available for new opportunities
+              <span>Available</span>
             </div>
             <div>
-              <p className="mb-3 text-sm font-medium text-zinc-500 dark:text-zinc-400">Gokul Krishna Balaji</p>
-              <h1 className="text-balance text-[clamp(2.25rem,12.5vw,3rem)] font-black leading-[0.95] tracking-tightest text-zinc-900 dark:text-white sm:text-6xl lg:text-7xl">
-                Full-Stack
+              <p className="mb-3 text-sm font-semibold text-zinc-600 dark:text-zinc-300">Gokul Krishna Balaji</p>
+              <h1 className="font-display text-balance text-[clamp(2.25rem,12.5vw,3rem)] font-bold leading-[0.92] tracking-tightest text-zinc-900 dark:text-white sm:text-6xl lg:text-7xl">
+                Building useful
                 <br />
-                <span className="text-zinc-400 dark:text-zinc-500">&amp;</span> AI Engineer
+                <span className="text-accent-indigo">intelligence.</span>
               </h1>
               <p className="mt-5 max-w-md text-pretty text-base leading-relaxed text-zinc-600 dark:text-zinc-300">
-                I build fast, thoughtful web products and AI-powered systems — from model to production.
+                Full-stack &amp; AI engineer turning promising models into reliable products people can use.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
@@ -112,7 +113,7 @@ export default function Bento() {
 
         {/* Portrait */}
         <motion.div variants={item} className="sm:col-span-2 lg:col-span-2">
-          <Tile accent="sky" spotlight={false} bodyClassName="p-0" className="h-full min-h-[300px] lg:min-h-[360px]">
+          <Tile accent="sky" spotlight={false} bodyClassName="p-0" className="h-full min-h-[300px] lg:min-h-[390px]">
             <Portrait />
           </Tile>
         </motion.div>
@@ -120,7 +121,7 @@ export default function Bento() {
         {/* Stack */}
         <motion.div variants={item} className="lg:col-span-2">
           <Tile accent="sky" className="h-full">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-accent-sky">Stack</p>
+            <p className="mb-4 font-mono text-[10px] font-semibold tracking-[0.16em] text-accent-sky">CORE STACK</p>
             <ul className="grid grid-cols-2 gap-y-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
               {stack.map((s) => (
                 <li key={s} className="flex items-center gap-2">
@@ -135,8 +136,8 @@ export default function Bento() {
         {/* Status */}
         <motion.div variants={item} className="lg:col-span-2">
           <Tile accent="emerald" className="h-full">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-accent-emerald">Now</p>
-            <p className="text-lg font-black tracking-tightest text-zinc-900 dark:text-white">Open to internships &amp; roles</p>
+            <p className="mb-4 font-mono text-[10px] font-semibold tracking-[0.16em] text-accent-emerald">CURRENT SIGNAL</p>
+            <p className="font-display text-xl font-bold tracking-tightest text-zinc-900 dark:text-white">Open to internships &amp; roles</p>
             <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400">
               CSE (AI) @ IIITDM Kancheepuram · Remote / India
             </p>
@@ -146,7 +147,7 @@ export default function Bento() {
         {/* Socials */}
         <motion.div variants={item} className="lg:col-span-2">
           <Tile accent="amber" className="h-full">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-accent-amber">Connect</p>
+            <p className="mb-4 font-mono text-[10px] font-semibold tracking-[0.16em] text-accent-amber">ON THE WEB</p>
             <ul className="space-y-1">
               {socials.map(({ icon: Icon, label, href }) => (
                 <li key={label}>

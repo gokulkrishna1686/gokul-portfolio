@@ -15,22 +15,23 @@ const config: Config = {
       colors: {
         // Curated muted accents — one hue per tile/area, used sparingly.
         accent: {
-          indigo: '#818cf8',
-          sky: '#38bdf8',
-          emerald: '#34d399',
-          amber: '#fbbf24',
-          rose: '#fb7185',
+          indigo: '#2459d3',
+          sky: '#1685a7',
+          emerald: '#24755e',
+          amber: '#ad6a1f',
+          rose: '#b34d67',
         },
         // Dark-mode elevation: a soft near-black canvas with stepped surfaces
         // on top, so cards read as raised rather than dissolving into black.
         ink: {
-          base: '#000000', // page canvas (plain black)
-          raised: '#0e0f14', // tiles / cards — deep, faintly cool near-black
-          overlay: '#15161c', // popovers / dropdowns
+          base: '#111616',
+          raised: '#18201f',
+          overlay: '#232e2c',
         },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       letterSpacing: {
@@ -39,11 +40,11 @@ const config: Config = {
       backgroundImage: {
         // Seamless multi-hue strip for the animated hairline (loops back to indigo).
         hairline:
-          'linear-gradient(90deg, #818cf8, #38bdf8, #34d399, #fbbf24, #fb7185, #818cf8)',
+          'linear-gradient(90deg, #2459d3, #1685a7, #24755e, #ad6a1f, #b34d67, #2459d3)',
       },
       boxShadow: {
-        tile: '0 1px 2px 0 rgba(0,0,0,0.04)',
-        'tile-hover': '0 8px 30px -12px rgba(0,0,0,0.25)',
+        tile: '3px 3px 0 rgba(24, 38, 34, 0.08)',
+        'tile-hover': '6px 6px 0 rgba(24, 38, 34, 0.13)',
       },
       keyframes: {
         'hairline-pan': {

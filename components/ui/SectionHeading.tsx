@@ -20,7 +20,7 @@ export default function SectionHeading({ index, eyebrow, title, accent = 'indigo
           {eyebrow}
         </span>
       </div>
-      <h2 className="text-balance text-3xl font-black tracking-tightest text-zinc-900 dark:text-white sm:text-4xl lg:text-5xl">
+      <h2 className="font-display text-balance text-3xl font-bold tracking-tightest text-zinc-900 dark:text-white sm:text-4xl lg:text-5xl">
         {title}
       </h2>
     </div>

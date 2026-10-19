@@ -16,7 +16,7 @@ export default function About() {
         <span className="text-xs font-semibold uppercase tracking-wider text-accent-indigo">About</span>
       </div>
 
-      <p className="max-w-5xl text-pretty text-2xl font-semibold leading-[1.35] tracking-tight text-zinc-500 dark:text-zinc-400 sm:text-3xl lg:text-[2.5rem] lg:leading-[1.32]">
+      <p className="font-display max-w-5xl text-pretty text-2xl font-medium leading-[1.35] tracking-tight text-zinc-500 dark:text-zinc-400 sm:text-3xl lg:text-[2.5rem] lg:leading-[1.32]">
         I&apos;m a <Hi>Computer Science (AI)</Hi> undergrad building intelligent systems that turn{' '}
         <Hi>machine-learning research</Hi> into{' '}
         <span className="text-accent-indigo">products people actually use</span>. I&apos;ve shipped{' '}

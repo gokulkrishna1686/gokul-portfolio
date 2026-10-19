@@ -33,7 +33,7 @@ export default function ProjectCard({ project, index = 0, large = false }: Proje
 
       <h3
         className={cn(
-          'font-black tracking-tightest text-zinc-900 dark:text-white',
+          'font-display font-bold tracking-tightest text-zinc-900 dark:text-white',
           large ? 'text-2xl sm:text-3xl' : 'text-lg'
         )}
       >

@@ -23,7 +23,7 @@ export default function SectionContainer({
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        'scroll-mt-[var(--nav-h)] px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20',
+        'scroll-mt-[var(--nav-h)] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24',
         divider && 'border-t border-zinc-200 dark:border-white/10',
         className
       )}
