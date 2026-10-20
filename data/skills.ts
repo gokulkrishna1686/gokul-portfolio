@@ -10,22 +10,22 @@ export const skillsData: SkillCategory[] = [
   },
   {
     name: 'Frontend',
-    skills: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'HTML/CSS'],
+    skills: ['React', 'React Native', 'Expo', 'HTML/CSS', 'Vite'],
   },
   {
     name: 'Backend',
-    skills: ['Node.js', 'Express', 'FastAPI', 'REST APIs', 'GraphQL'],
+    skills: ['Spring Boot', 'FastAPI', 'Node.js', 'REST APIs', 'Convex'],
   },
   {
     name: 'AI / ML',
-    skills: ['LangChain', 'OpenAI API', 'HuggingFace', 'PyTorch', 'Scikit-learn', 'RAG'],
+    skills: ['RAG', 'LangGraph', 'Hugging Face', 'PyTorch', 'GPT-4o', 'Mistral-7B'],
   },
   {
     name: 'Database',
-    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Supabase', 'Prisma'],
+    skills: ['PostgreSQL', 'Supabase', 'Relational databases', 'Indexing', 'Transactions'],
   },
   {
     name: 'Tools & Infra',
-    skills: ['Git', 'Docker', 'Vercel', 'AWS', 'Linux', 'CI/CD'],
+    skills: ['Docker', 'GitHub Actions', 'Flyway', 'Prometheus', 'Grafana', 'Linux'],
   },
 ]

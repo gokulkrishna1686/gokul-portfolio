@@ -23,9 +23,9 @@ export default function App() {
       <main id="main">
         <Bento />
         <About />
+        <Experience />
         <Projects />
         <Skills />
-        <Experience />
         <Education />
         <Contact />
       </main>

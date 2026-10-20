@@ -15,18 +15,18 @@ const config: Config = {
       colors: {
         // Curated muted accents — one hue per tile/area, used sparingly.
         accent: {
-          indigo: '#2459d3',
-          sky: '#1685a7',
-          emerald: '#24755e',
-          amber: '#ad6a1f',
-          rose: '#b34d67',
+          indigo: 'rgb(var(--accent-indigo) / <alpha-value>)',
+          sky: 'rgb(var(--accent-sky) / <alpha-value>)',
+          emerald: 'rgb(var(--accent-emerald) / <alpha-value>)',
+          amber: 'rgb(var(--accent-amber) / <alpha-value>)',
+          rose: 'rgb(var(--accent-rose) / <alpha-value>)',
         },
         // Dark-mode elevation: a soft near-black canvas with stepped surfaces
         // on top, so cards read as raised rather than dissolving into black.
         ink: {
-          base: '#111616',
-          raised: '#18201f',
-          overlay: '#232e2c',
+          base: 'rgb(var(--ink-base) / <alpha-value>)',
+          raised: 'rgb(var(--ink-raised) / <alpha-value>)',
+          overlay: 'rgb(var(--ink-overlay) / <alpha-value>)',
         },
       },
       fontFamily: {

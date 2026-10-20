@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { type HTMLAttributes, type ReactNode } from 'react'
 import SpotlightCard from '@/components/ui/SpotlightCard'
 import { type Accent, spotlightColor } from '@/components/ui/accents'
 import { cn } from '@/lib/utils'
@@ -13,7 +13,7 @@ type Props = {
   hairline?: boolean
   /** Cursor-following spotlight glow (auto-disabled on touch). */
   spotlight?: boolean
-}
+} & Omit<HTMLAttributes<HTMLDivElement>, 'children' | 'className'>
 
 /**
  * The bento/section building block: a neutral tile with a 1px border, an
@@ -26,13 +26,15 @@ export default function Tile({
   accent = 'indigo',
   hairline = false,
   spotlight = true,
+  ...props
 }: Props) {
   const body = <div className={cn('relative h-full p-6 sm:p-7', bodyClassName)}>{children}</div>
 
   return (
     <div
+      {...props}
       className={cn(
-        'tile group relative overflow-hidden hover:border-zinc-300 dark:hover:border-white/20',
+        'tile group relative isolate overflow-hidden hover:border-zinc-400 dark:hover:border-white/20',
         className
       )}
     >

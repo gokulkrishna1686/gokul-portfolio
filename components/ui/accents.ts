@@ -17,6 +17,14 @@ export const accentDot: Record<Accent, string> = {
   rose: 'bg-accent-rose',
 }
 
+export const accentRgb: Record<Accent, string> = {
+  indigo: '36, 89, 211',
+  sky: '22, 133, 167',
+  emerald: '36, 117, 94',
+  amber: '173, 106, 31',
+  rose: '179, 77, 103',
+}
+
 export const spotlightColor: Record<Accent, string> = {
   indigo: 'rgba(129,140,248,0.16)',
   sky: 'rgba(56,189,248,0.16)',

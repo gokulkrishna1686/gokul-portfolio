@@ -27,7 +27,7 @@ const rowVariant: Variants = {
 export default function Skills() {
   return (
     <SectionContainer id="skills">
-      <SectionHeading index="03" eyebrow="Skills" accent="emerald" title="Tools of the trade." />
+      <SectionHeading index="04" eyebrow="Skills" accent="emerald" title="Tools of the trade." />
 
       <motion.div
         variants={container}

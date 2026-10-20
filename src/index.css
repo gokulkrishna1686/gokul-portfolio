@@ -8,6 +8,16 @@
   --font-inter: 'DM Sans', system-ui, sans-serif;
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --nav-h: 64px;
+  --paper: #fffef9;
+  --graphite: #182622;
+  --accent-indigo: 36 89 211;
+  --accent-sky: 22 133 167;
+  --accent-emerald: 36 117 94;
+  --accent-amber: 173 106 31;
+  --accent-rose: 179 77 103;
+  --ink-base: 13 18 27;
+  --ink-raised: 22 30 42;
+  --ink-overlay: 32 43 58;
   font-family: var(--font-inter);
 }
 
@@ -19,7 +29,12 @@ html {
 }
 
 html.dark {
-  background-color: #111616;
+  --accent-indigo: 140 166 255;
+  --accent-sky: 99 201 230;
+  --accent-emerald: 99 208 164;
+  --accent-amber: 226 170 85;
+  --accent-rose: 242 140 164;
+  background-color: rgb(var(--ink-base));
   color-scheme: dark;
 }
 
@@ -65,12 +80,153 @@ html.dark {
 .font-display { font-family: var(--font-display); }
 
 .site-grid {
-  background-image: linear-gradient(rgba(28, 40, 38, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(28, 40, 38, 0.045) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image:
+    linear-gradient(rgba(28, 40, 38, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 40, 38, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, transparent calc(50% - 1px), rgba(28, 40, 38, 0.07) calc(50% - 1px), rgba(28, 40, 38, 0.07) 50%, transparent 50%);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
 }
 
 .dark .site-grid {
-  background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(183, 203, 232, .042) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(183, 203, 232, .042) 1px, transparent 1px),
+    linear-gradient(90deg, transparent calc(50% - 1px), rgba(183, 203, 232, .068) calc(50% - 1px), rgba(183, 203, 232, .068) 50%, transparent 50%);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
+}
+
+/* Technical field-note details: reserved for structural UI, not decoration. */
+.tile {
+  clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 13px, 100% 100%, 13px 100%, 0 calc(100% - 13px));
+}
+
+.tile::before,
+.tile::after {
+  content: '';
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  opacity: .65;
+}
+
+.tile::before {
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+  color: #2459d3;
+}
+
+.tile::after {
+  right: 0;
+  top: 0;
+  border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  color: #1685a7;
+}
+
+.dark .tile::before,
+.dark .tile::after { opacity: .45; }
+
+/* Dark mode has its own elevation system: midnight canvas, slate surfaces,
+   pale structural lines, and accent signals tuned for low-light contrast. */
+.dark .tile {
+  border-color: rgba(177, 198, 227, .16);
+  background-color: rgb(var(--ink-raised));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .055), 0 12px 28px rgba(2, 6, 14, .2);
+}
+.dark .tile:hover { border-color: rgba(197, 215, 240, .3); }
+.dark .bento-intro { background-image: linear-gradient(145deg, rgba(140, 166, 255, .15), transparent 45%); }
+.dark .bento-stack { background-image: linear-gradient(135deg, rgba(99, 201, 230, .13), transparent 58%); }
+.dark .bento-status { background-image: linear-gradient(135deg, rgba(99, 208, 164, .13), transparent 58%); }
+.dark .bento-socials { background-image: linear-gradient(135deg, rgba(226, 170, 85, .12), transparent 58%); }
+.dark .project-dialog-backdrop { background: rgba(4, 8, 15, .7); }
+.dark ::-webkit-scrollbar-thumb { background: rgba(167, 190, 219, .32); }
+.dark ::-webkit-scrollbar-thumb:hover { background: rgba(167, 190, 219, .48); }
+
+.section-kicker {
+  display: grid;
+  grid-template-columns: auto minmax(2.5rem, 1fr);
+  align-items: center;
+  gap: .75rem;
+}
+
+.section-kicker::after {
+  content: '';
+  height: 1px;
+  background: currentColor;
+  opacity: .3;
+}
+
+.action-corner {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+/* The first screen reads as a personal dashboard: compact, useful signals rather
+   than a collection of evenly weighted cards. */
+.bento-intro { background-image: linear-gradient(145deg, rgba(36, 89, 211, .06), transparent 42%); }
+.bento-stack { background-image: linear-gradient(135deg, rgba(22, 133, 167, .075), transparent 55%); }
+.bento-status { background-image: linear-gradient(135deg, rgba(36, 117, 94, .08), transparent 58%); }
+.bento-socials { background-image: linear-gradient(135deg, rgba(173, 106, 31, .075), transparent 58%); }
+.portrait-tile img { transition: transform .7s cubic-bezier(.22, 1, .36, 1), filter .5s ease; }
+.portrait-tile:hover img { transform: scale(1.035); filter: saturate(1.06) contrast(1.03); }
+
+/* Project cards are case files: each receives a small, color-coded signal field
+   so the grid has rhythm before the copy is read. */
+.project-card { display: flex; flex-direction: column; }
+.project-visual {
+  position: relative;
+  height: 104px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(var(--case-rgb), .22);
+  background:
+    linear-gradient(120deg, rgba(var(--case-rgb), .19), transparent 62%),
+    repeating-linear-gradient(90deg, rgba(var(--case-rgb), .13) 0 1px, transparent 1px 25px),
+    repeating-linear-gradient(0deg, rgba(var(--case-rgb), .1) 0 1px, transparent 1px 25px);
+}
+.project-number {
+  position: absolute;
+  right: 16px;
+  bottom: -14px;
+  font-family: var(--font-display);
+  font-size: 92px;
+  font-weight: 700;
+  letter-spacing: -.08em;
+  line-height: 1;
+  color: rgba(var(--case-rgb), .18);
+}
+.project-orbit { position: absolute; border: 1px solid rgba(var(--case-rgb), .45); border-radius: 999px; }
+.project-orbit-one { width: 118px; height: 118px; left: 34px; top: -47px; }
+.project-orbit-two { width: 72px; height: 72px; left: 57px; top: -24px; border-style: dashed; }
+.project-crosshair { position: absolute; width: 10px; height: 10px; left: 88px; top: 29px; border: 2px solid rgb(var(--case-rgb)); border-radius: 50%; box-shadow: 0 0 0 5px rgba(var(--case-rgb), .11); }
+.project-card:hover .project-orbit-one { transform: scale(1.1); }
+.project-card:hover .project-orbit-two { transform: rotate(25deg); }
+.project-orbit { transition: transform .55s cubic-bezier(.22, 1, .36, 1); }
+.project-description { display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 4; }
+
+/* The dialog carries its card's signal color through the expanded case study. */
+.project-dialog-backdrop { background: rgba(17, 22, 22, .48); }
+.project-dialog-panel {
+  border-color: rgba(var(--case-rgb), .38);
+  background-image: linear-gradient(135deg, rgba(var(--case-rgb), .11), transparent 45%);
+  box-shadow: 10px 10px 0 rgba(var(--case-rgb), .2);
+  transform-style: preserve-3d;
+}
+.project-dialog-link { border-color: rgba(var(--case-rgb), .3); }
+.project-dialog-link:hover { border-color: rgb(var(--case-rgb)); color: rgb(var(--case-rgb)); }
+.project-dialog-link:focus-visible { --tw-ring-color: rgb(var(--case-rgb)); }
+.project-dialog-tag { border-color: rgba(var(--case-rgb), .24); }
+.dark .project-dialog-panel { box-shadow: 10px 10px 0 rgba(0, 0, 0, .38); }
+
+@media (min-width: 1024px) {
+  .project-card .project-visual { height: 122px; }
+  .project-card .project-visual + div .project-description { -webkit-line-clamp: 4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-tile img, .project-orbit { transition: none; }
 }
 
 /* Selection accent (subtle indigo) */

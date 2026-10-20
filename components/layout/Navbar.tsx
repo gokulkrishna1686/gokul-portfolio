@@ -7,9 +7,10 @@ import { useScrollTo } from '@/hooks/useScrollTo'
 
 const navLinks = [
   { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -86,7 +87,7 @@ export default function Navbar() {
         <a
           href="#"
           onClick={(e) => handleNav(e, '#')}
-          className={cn('font-display rounded text-lg font-bold tracking-tightest text-zinc-900 dark:text-white', focusRing)}
+          className={cn('font-display relative flex h-9 w-9 items-center justify-center border border-zinc-300 text-sm font-bold tracking-tightest text-zinc-900 transition-colors hover:border-zinc-500 dark:border-white/15 dark:text-white dark:hover:border-white/40', focusRing)}
         >
           GK
         </a>
@@ -101,7 +102,7 @@ export default function Navbar() {
                   onClick={(e) => handleNav(e, link.href)}
                   aria-current={isActive ? 'page' : undefined}
                   className={cn(
-                    'group relative rounded text-xs font-semibold uppercase tracking-wider transition-colors',
+                    'group relative rounded text-[11px] font-semibold uppercase tracking-wider transition-colors',
                     isActive
                       ? 'text-zinc-900 dark:text-white'
                       : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white',

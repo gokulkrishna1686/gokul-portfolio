@@ -30,7 +30,7 @@ export default function Education() {
             <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
               CGPA
             </p>
-            <p className="text-[11px] text-zinc-500 dark:text-zinc-400">through Sem 4</p>
+            <p className="text-[11px] text-zinc-500 dark:text-zinc-400">out of 10.0</p>
           </div>
 
           <div className="w-px self-stretch bg-zinc-200 dark:bg-white/10" aria-hidden />
@@ -40,7 +40,7 @@ export default function Education() {
             <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
               Expected
             </p>
-            <p className="text-[11px] text-zinc-500 dark:text-zinc-400">graduation</p>
+            <p className="text-[11px] text-zinc-500 dark:text-zinc-400">May graduation</p>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react'
 import SectionContainer from '@/components/ui/SectionContainer'
 
-const focusItems = ['LLM apps', 'RAG', 'AI agents', 'Full-stack', 'Computer vision']
+const focusItems = ['Multimodal AI', 'RAG systems', 'AI agents', 'Backend systems', 'Developer tooling']
 
 /** Full-contrast emphasis word inside the muted statement. */
 function Hi({ children }: { children: ReactNode }) {
@@ -11,17 +11,19 @@ function Hi({ children }: { children: ReactNode }) {
 export default function About() {
   return (
     <SectionContainer id="about">
-      <div className="mb-8 flex items-center gap-2.5">
-        <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">01</span>
-        <span className="text-xs font-semibold uppercase tracking-wider text-accent-indigo">About</span>
+      <div className="section-kicker mb-8 text-accent-indigo">
+        <div className="flex items-center gap-2.5">
+          <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">01</span>
+          <span className="text-xs font-semibold uppercase tracking-wider">About</span>
+        </div>
       </div>
 
       <p className="font-display max-w-5xl text-pretty text-2xl font-medium leading-[1.35] tracking-tight text-zinc-500 dark:text-zinc-400 sm:text-3xl lg:text-[2.5rem] lg:leading-[1.32]">
         I&apos;m a <Hi>Computer Science (AI)</Hi> undergrad building intelligent systems that turn{' '}
-        <Hi>machine-learning research</Hi> into{' '}
-        <span className="text-accent-indigo">products people actually use</span>. I&apos;ve shipped{' '}
-        <Hi>RAG assistants</Hi>, <Hi>AI grading platforms</Hi>, and <Hi>computer-vision apps</Hi> — designed
-        end-to-end, from models and data pipelines to scalable backends and clean interfaces.
+        <Hi>applied AI research</Hi> into{' '}
+        <span className="text-accent-indigo">reliable products people can use</span>. I&apos;ve built{' '}
+        <Hi>multimodal document intelligence</Hi>, <Hi>real-time voice agents</Hi>, and{' '}
+        <Hi>production backend systems</Hi> — from models and retrieval to robust APIs and clean interfaces.
       </p>
 
       <div className="hairline mb-10 mt-14" />
